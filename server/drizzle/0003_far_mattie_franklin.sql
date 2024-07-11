@@ -1,0 +1,1 @@
+ALTER TABLE "todos" ALTER COLUMN "completed_date" DROP NOT NULL;

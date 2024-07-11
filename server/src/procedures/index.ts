@@ -1,8 +1,8 @@
-import { createTodo, getTodos } from "./todos.procedures";
+import { create, getAll } from "./products.procedures";
 
 export const procedures = {
-  todos: {
-    getTodos,
-    createTodo,
+  products: {
+    getAll,
+    create,
   },
 };
