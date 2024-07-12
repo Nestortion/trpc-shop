@@ -1,14 +1,11 @@
 import { initTRPC } from "@trpc/server";
-import { CreateExpressContextOptions } from "@trpc/server/adapters/express";
+import { type CreateExpressContextOptions } from "@trpc/server/adapters/express";
 
-export const createContext = ({ req, res }: CreateExpressContextOptions) => {
+export const createContext = ({ req }: CreateExpressContextOptions) => {
   const auth = req.auth;
-
-  console.log(auth);
   if (!auth.userId) {
     throw new Error("Not authenticated");
   }
-
   return {
     auth,
   };
