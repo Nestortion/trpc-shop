@@ -73,7 +73,14 @@ module.exports = {
       },
     },
     animatedSettings: {
-      classes: ["hinge", "fadeIn"],
+      classes: [
+        "bounceInDown",
+        "fadeInLeftBig",
+        "hinge",
+        "fadeInRightBig",
+        "fadeIn",
+        "bounceIn",
+      ],
     },
   },
   plugins: [require("tailwindcss-animatecss"), require("tailwindcss-animate")],
