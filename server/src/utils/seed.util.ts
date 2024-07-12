@@ -5,21 +5,19 @@ import { nanoid } from "./nanoid.util";
 const seedCategories = async () => {
   const arr = ["Clothings", "Electronics", "Tools"];
 
-  return Promise.all(
-    arr.map(async (categoryName) => {
-      const categoryId = nanoid();
-      await db.insert(categories).values({
-        id: categoryId,
-        name: categoryName,
-        description: `Description for ${categoryName}`,
-      });
-    })
-  );
+  for (const category of arr) {
+    const categoryId = nanoid();
+    await db.insert(categories).values({
+      id: categoryId,
+      name: category,
+      description: `Description of ${category}`,
+    });
+  }
 };
 
 const main = async () => {
   console.log("Seeding database");
-  seedCategories();
+  await seedCategories();
 };
 
 main()
