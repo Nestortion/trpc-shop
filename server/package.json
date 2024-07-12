@@ -3,11 +3,14 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "dev": "tsup src/index.ts --watch --onSuccess \"node dist/index.js\"",
+    "dev": "tsup src/index.ts --watch --format esm --onSuccess \"node dist/index.mjs\"",
     "build": "tsup",
     "generate": "drizzle-kit generate",
-    "migrate": "tsx ./src/utils/migrate.ts"
+    "migrate": "tsx ./src/utils/migrate.util.ts",
+    "reset": "tsx ./src/utils/reset.util.ts && tsx ./src/utils/seed.util.ts",
+    "seed": "tsx ./src/utils/seed.util.ts"
   },
   "keywords": [],
   "author": "",
@@ -21,6 +24,8 @@
     "dotenv": "^16.4.5",
     "drizzle-orm": "^0.31.2",
     "express": "^4.19.2",
+    "mysql2": "^3.10.2",
+    "nanoid": "^5.0.7",
     "zod": "^3.23.8"
   },
   "devDependencies": {

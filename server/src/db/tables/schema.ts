@@ -1,29 +1,47 @@
-import {
-  doublePrecision,
-  integer,
-  pgTable,
-  serial,
-  varchar,
-} from "drizzle-orm/pg-core";
+import { double, int, mysqlTable, text, varchar } from "drizzle-orm/mysql-core";
 
-export const products = pgTable("products", {
-  id: serial("id").primaryKey(),
-  productId: varchar("product_id", { length: 100 }).notNull(),
+export const products = mysqlTable("products", {
+  id: varchar("id", { length: 21 }).primaryKey(),
   name: varchar("name", { length: 100 }).notNull(),
-  price: doublePrecision("price").notNull(),
-  stocks: integer("stocks").notNull(),
-  productDescription: varchar("product_description", { length: 1000 }),
+  price: double("price", { precision: 13, scale: 2 }).notNull().$type<number>(),
+  stocks: int("stocks").notNull(),
+  productDescription: text("product_description"),
+  categoryId: varchar("category_id", { length: 21 })
+    .notNull()
+    .references(() => categories.id, {
+      onDelete: "cascade",
+      onUpdate: "cascade",
+    }),
+  productImg: text("product_img"),
 });
 
-export const carts = pgTable("carts", {
-  id: serial("id").primaryKey(),
-  userId: integer("user_id").notNull(),
+export const carts = mysqlTable("carts", {
+  id: varchar("id", { length: 21 }).primaryKey(),
+  userId: int("user_id").notNull(),
 });
 
-export const cartProducts = pgTable("cart_products", {
-  id: serial("id").primaryKey(),
-  cartId: integer("cart_id").notNull(),
-  productId: integer("product_id").notNull(),
-  quantity: integer("quantity").notNull(),
-  totalPrice: doublePrecision("total_price").notNull(),
+export const cartProducts = mysqlTable("cart_products", {
+  id: varchar("id", { length: 21 }).primaryKey(),
+  cartId: varchar("cart_id", { length: 21 })
+    .notNull()
+    .references(() => carts.id, {
+      onDelete: "cascade",
+      onUpdate: "cascade",
+    }),
+  productId: varchar("product_id", { length: 21 })
+    .notNull()
+    .references(() => products.id, {
+      onDelete: "cascade",
+      onUpdate: "cascade",
+    }),
+  quantity: int("quantity").notNull(),
+  totalPrice: double("total_price", { precision: 13, scale: 2 })
+    .notNull()
+    .$type<number>(),
+});
+
+export const categories = mysqlTable("categories", {
+  id: varchar("id", { length: 21 }).primaryKey(),
+  name: varchar("name", { length: 100 }).notNull(),
+  description: text("description"),
 });
