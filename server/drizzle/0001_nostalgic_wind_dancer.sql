@@ -1,1 +1,0 @@
-ALTER TABLE "todos" ADD COLUMN "user_id" varchar(100) NOT NULL;

@@ -1,1 +1,0 @@
-ALTER TABLE "todos" ADD COLUMN "completed_date" date NOT NULL;

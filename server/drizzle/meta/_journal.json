@@ -1,47 +1,12 @@
 {
   "version": "7",
-  "dialect": "postgresql",
+  "dialect": "mysql",
   "entries": [
     {
       "idx": 0,
-      "version": "7",
-      "when": 1720409195365,
-      "tag": "0000_heavy_puff_adder",
-      "breakpoints": true
-    },
-    {
-      "idx": 1,
-      "version": "7",
-      "when": 1720410694107,
-      "tag": "0001_nostalgic_wind_dancer",
-      "breakpoints": true
-    },
-    {
-      "idx": 2,
-      "version": "7",
-      "when": 1720414656839,
-      "tag": "0002_lucky_sauron",
-      "breakpoints": true
-    },
-    {
-      "idx": 3,
-      "version": "7",
-      "when": 1720414729449,
-      "tag": "0003_far_mattie_franklin",
-      "breakpoints": true
-    },
-    {
-      "idx": 4,
-      "version": "7",
-      "when": 1720676404002,
-      "tag": "0004_loving_odin",
-      "breakpoints": true
-    },
-    {
-      "idx": 5,
-      "version": "7",
-      "when": 1720765477045,
-      "tag": "0005_glossy_marauders",
+      "version": "5",
+      "when": 1720772978772,
+      "tag": "0000_wonderful_darkstar",
       "breakpoints": true
     }
   ]
