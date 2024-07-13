@@ -15,6 +15,13 @@
       "when": 1720833740698,
       "tag": "0001_nosy_white_queen",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1720836469101,
+      "tag": "0002_dear_carmella_unuscione",
+      "breakpoints": true
     }
   ]
 }
