@@ -1,0 +1,1 @@
+ALTER TABLE `carts` MODIFY COLUMN `user_id` varchar(60) NOT NULL;
